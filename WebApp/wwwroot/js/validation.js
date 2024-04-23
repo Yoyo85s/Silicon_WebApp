@@ -1,6 +1,5 @@
 
 const formErrorHandler = (element, validationResult) => {
-    // Get the name of the input element directly from the element parameter
     let spanElement = document.querySelector(`[data-valmsg-for="${element.name}"]`);
 
     if (validationResult) {
@@ -19,9 +18,6 @@ const formErrorHandler = (element, validationResult) => {
 }
 
 
-
-
-
 const textValidator = (element, minLength = 2) => {
     if (element.value.length >= minLength) {
         formErrorHandler(element, true);
@@ -29,7 +25,6 @@ const textValidator = (element, minLength = 2) => {
         formErrorHandler(element, false);
     }
 }
-
 
 
 const emailValidator = (element) => {
@@ -96,3 +91,5 @@ inputs.forEach(input => {
         }
     }
 })
+
+

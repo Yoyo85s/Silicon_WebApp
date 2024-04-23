@@ -1,6 +1,8 @@
-﻿@model SubscribeViewModel
+﻿ @model SubscribeViewModel
 
-<section id="subscribe">
+
+
+<section id="subscribe" class="subscribe">
     <div class="container">
 
         <div class="title">
@@ -58,10 +60,11 @@
                 </div>
             </div>
 
-            <div class="form-email">
+            <div  class="form-email" >
                 <div class="input-group">
                     <i class="fa-regular fa-envelope"></i>
                     <input asp-for="Email" />
+                    <span asp-validation-for="Email"></span>
                 </div>
                 <button type="submit" class="btn btn-theme">Subscribe *</button>
             </div>
@@ -69,18 +72,19 @@
 
             @if (!string.IsNullOrEmpty(TempData["StatusMessage"]?.ToString()))
             {
-                <span class="status-message">@TempData["StatusMessage"]</span>
+                <span class="alert">@TempData["StatusMessage"]</span>
             }
             else
             {
-                <span class="status-message">* Yes, I agree to the terms and privacy policy.</span>
+                <span class="status-message" >* Yes, I agree to the terms and privacy policy.</span>
             }
-
+          
 
         </form>
-
 
     </div>
 </section>
 
-                    @* (TempData["StatusMessage"]?.ToString()) *@
+@await Html.PartialAsync("_ValidationScriptPartial")
+
+              

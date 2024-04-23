@@ -14,7 +14,7 @@ public class DefaultController(HttpClient httpClient) : Controller
 
     public IActionResult Home()
     {
-        TempData["StatusMessage"] = "* Yes, I agree to the terms and privacy policy.";
+       
         return View();
     }
 
@@ -31,21 +31,21 @@ public class DefaultController(HttpClient httpClient) : Controller
 
                 if (response.IsSuccessStatusCode)
                 {
-                    TempData["StatusMessage"] = "Subscribed";
+                    TempData["StatusMessage"] = "You are now subscribed";
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
                 {
-                    TempData["StatusMessage"] = "Already subscribed!";
+                    TempData["StatusMessage"] = "You are already subscribed";
                 }
             }
             catch
             {
-                ViewData["Status"] = "Error";
+                TempData["StatusMessage"] = "ConnectionFailed";
             }
         }
         else
         {
-            TempData["StatusMessage"] = "Please inter a valid email address";
+            TempData["StatusMessage"] = "Invalid email address";
         }
 
         return RedirectToAction("Home", "Default", "subscribe");
@@ -53,34 +53,7 @@ public class DefaultController(HttpClient httpClient) : Controller
 
 
 
-    //[HttpPost]
-    //public async Task<IActionResult> Subscribe(SubscribeViewModel model)
-    //{
-    //    if (ModelState.IsValid)
-    //    {
-    //        var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
-    //        var response = await _httpClient.PostAsync("https://localhost:7125/api/subscribe", content);
-
-    //        if (response.IsSuccessStatusCode)
-    //        {
-    //            TempData["StatusMessage"] = "You are now subscribed";
-    //        }
-    //        else if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
-    //        {
-    //            TempData["StatusMessage"] = "You are already subscribed";
-    //        }
-    //    }
-    //    else
-    //    {
-    //        TempData["StatusMessage"] = "Invalid email address";
-    //    }
-
-    //    return RedirectToAction("Home", "Default", "subscribe");
-    //}
-
-
 
 }
 
 
-//https://localhost:7287/api/Subscribe

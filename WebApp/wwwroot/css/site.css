@@ -1,4 +1,5 @@
 ﻿@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Manrope:wght@200..800&display=swap");
 :root {
   --color-gray-000: #FFFFFF;
   --color-gray-100: #F3F6FF;
@@ -562,11 +563,26 @@ form .field-validation-error {
   padding: 2px 5px;
 }
 
+/*.account-profile {
+    .profile {
+        .profile-image {
+
+            image {
+                border-radius: 50%;
+                height: 60px;
+                width: 60px;
+                object-fit: cover;
+                border: 1px solid var(--color-gray-400);
+            }
+        }
+    }
+}
+*/
 .courses {
   padding-top: 3rem;
   padding-bottom: 5rem;
 }
-.courses .container #Form-filters {
+.courses .container #form-filters {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -589,8 +605,11 @@ form .field-validation-error {
   border-radius: 8px;
   overflow: hidden;
   text-decoration: none;
-  box-shadow: 0 0 14px -4px rgba(var(--color-gray-500));
+  box-shadow: 0 0 14px -4px var(--color-gray-500);
   color: var(--color-gray-700);
+}
+.courses .container .course-items .course:hover {
+  box-shadow: 0 0 14px -4px var(--color-gray-900);
 }
 
 #download-app {
@@ -1035,6 +1054,10 @@ header .container .account-buttons .profile .profile-image form label {
 }
 #subscribe .container .title h2 {
   font-size: 2.5em;
+}
+#subscribe .container .status-message {
+  /*background-color: var(--color-danger);*/
+  color: var(--color-gray-800);
 }
 #subscribe .container form .alternative {
   margin: 2rem 0;

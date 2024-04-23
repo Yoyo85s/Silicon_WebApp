@@ -8,7 +8,7 @@
     <section class="account-profile">
         <div class="profile">
             <div class="profile-image">
-                <img src="~/images/uploads/profiles/@user.ProfileImage" alt="@user.FirstName @user.LastName" />
+                <img  src="~/images/uploads/profiles/@user.ProfileImage" alt="@user.FirstName @user.LastName" />
 
                 <form enctype="multipart/form-data" method="post" asp-action="UploadProfileImage" asp-controller="Account">
                     <input id="fileUploader" type="file" name="file" hidden />
@@ -25,3 +25,5 @@
         </div>
     </section>
 }
+
+
